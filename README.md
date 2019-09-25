@@ -16,6 +16,20 @@ CLI to interact with Coral
 
 # Usage
 
+<!-- usage -->
+```sh-session
+$ npm install -g @coralproject/coral-cli
+$ coral-cli COMMAND
+running command...
+$ coral-cli (-v|--version|version)
+@coralproject/coral-cli/0.1.0 darwin-x64 node-v10.15.3
+$ coral-cli --help [COMMAND]
+USAGE
+  $ coral-cli COMMAND
+...
+```
+<!-- usagestop -->
+
 # Commands
 
 <!-- commands -->
