@@ -1,8 +1,9 @@
 *-debug.log
 *-error.log
-/.nyc_output
+.nyc_output
 /dist
 /lib
 /tmp
-/yarn.lock
+yarn.lock
 node_modules
+oclif.manifest.json

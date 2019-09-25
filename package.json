@@ -8,18 +8,30 @@
   },
   "bugs": "https://github.com/coralproject/coral-cli/issues",
   "dependencies": {
+    "@heroku-cli/color": "^1.1.14",
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.1",
+    "@oclif/plugin-not-found": "^1.2.3",
+    "@oclif/plugin-plugins": "^1.7.8",
+    "cli-ux": "^5.3.2",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.15",
+    "netrc-parser": "^3.1.6",
     "tslib": "^1.10.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
-    "@oclif/tslint": "^3.1.1",
-    "@types/node": "^10.14.19",
+    "@types/isomorphic-fetch": "0.0.35",
+    "@types/lodash": "^4.14.139",
+    "@types/node": "^10.14.18",
+    "@types/supports-color": "^5.3.0",
     "globby": "^10.0.1",
+    "prettier": "^1.18.2",
     "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.6.3"
   },
   "engines": {
@@ -41,15 +53,24 @@
     "commands": "./lib/commands",
     "bin": "coral-cli",
     "plugins": [
-      "@oclif/plugin-help"
-    ]
+      "@oclif/plugin-help",
+      "@oclif/plugin-not-found",
+      "@oclif/plugin-plugins"
+    ],
+    "topics": {
+      "story": {
+        "description": "manage stories on Coral"
+      }
+    }
   },
   "repository": "coralproject/coral-cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "tslint -p . -t stylish",
+    "pack": "oclif-dev pack",
+    "publish": "oclif-dev publish",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "test": "echo NO TESTS",
+    "test": "tsc -p . --noEmit",
     "version": "oclif-dev readme && git add README.md"
   },
   "types": "lib/index.d.ts"
