@@ -75,7 +75,6 @@
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "tslint -p . -t stylish",
     "pack": "oclif-dev pack",
-    "publish": "oclif-dev publish",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "tsc -p . --noEmit",
     "version": "oclif-dev readme && git add README.md"
