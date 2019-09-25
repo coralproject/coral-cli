@@ -1,5 +1,4 @@
-@coralproject/coral-cli
-=======================
+# @coralproject/coral-cli
 
 CLI to interact with Coral
 
@@ -10,24 +9,15 @@ CLI to interact with Coral
 [![License](https://img.shields.io/npm/l/@coralproject/coral-cli.svg)](https://github.com/coralproject/coral-cli/blob/master/package.json)
 
 <!-- toc -->
+* [@coralproject/coral-cli](#coralprojectcoral-cli)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
-<!-- usage -->
-```sh-session
-$ npm install -g @coralproject/coral-cli
-$ coral-cli COMMAND
-running command...
-$ coral-cli (-v|--version|version)
-@coralproject/coral-cli/1.0.0 darwin-x64 node-v10.15.3
-$ coral-cli --help [COMMAND]
-USAGE
-  $ coral-cli COMMAND
-...
-```
-<!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
 * [`coral-cli help [COMMAND]`](#coral-cli-help-command)
 * [`coral-cli login`](#coral-cli-login)
@@ -70,7 +60,7 @@ OPTIONS
   -d, --domain=domain  (required) domain for tenant to run command against
 ```
 
-_See code: [src/commands/login.ts](https://github.com/coralproject/coral-cli/blob/v1.0.0/src/commands/login.ts)_
+_See code: [src/commands/login.ts](https://github.com/coralproject/coral-cli/blob/v0.1.0/src/commands/login.ts)_
 
 ## `coral-cli logout`
 
@@ -84,7 +74,7 @@ OPTIONS
   -d, --domain=domain  (required) domain for tenant to run command against
 ```
 
-_See code: [src/commands/logout.ts](https://github.com/coralproject/coral-cli/blob/v1.0.0/src/commands/logout.ts)_
+_See code: [src/commands/logout.ts](https://github.com/coralproject/coral-cli/blob/v0.1.0/src/commands/logout.ts)_
 
 ## `coral-cli plugins`
 
@@ -217,7 +207,7 @@ OPTIONS
   --url=url            find a story by URL
 ```
 
-_See code: [src/commands/story/get.ts](https://github.com/coralproject/coral-cli/blob/v1.0.0/src/commands/story/get.ts)_
+_See code: [src/commands/story/get.ts](https://github.com/coralproject/coral-cli/blob/v0.1.0/src/commands/story/get.ts)_
 
 ## `coral-cli story:merge`
 
@@ -233,7 +223,7 @@ OPTIONS
   --into=into          (required) destination Story ID that will be merged into
 ```
 
-_See code: [src/commands/story/merge.ts](https://github.com/coralproject/coral-cli/blob/v1.0.0/src/commands/story/merge.ts)_
+_See code: [src/commands/story/merge.ts](https://github.com/coralproject/coral-cli/blob/v0.1.0/src/commands/story/merge.ts)_
 
 ## `coral-cli story:update`
 
@@ -249,5 +239,5 @@ OPTIONS
   --url=url            (required) the new URL to update the story to
 ```
 
-_See code: [src/commands/story/update.ts](https://github.com/coralproject/coral-cli/blob/v1.0.0/src/commands/story/update.ts)_
+_See code: [src/commands/story/update.ts](https://github.com/coralproject/coral-cli/blob/v0.1.0/src/commands/story/update.ts)_
 <!-- commandsstop -->

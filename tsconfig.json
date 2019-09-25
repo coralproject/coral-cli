@@ -3,7 +3,6 @@
     "target": "es2018",
     "module": "commonjs",
     "declaration": true,
-    "importHelpers": true,
     "outDir": "lib",
     "rootDir": "src",
     "strict": true,
