@@ -1,6 +1,5 @@
 import { Command, flags } from "@coralproject/coral-cli-command";
 import color from "@heroku-cli/color";
-
 import { cli } from "cli-ux";
 
 export const GetStoryQuery = /* GraphQL */ `

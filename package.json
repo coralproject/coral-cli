@@ -1,14 +1,14 @@
 {
   "name": "@coralproject/coral-cli",
   "description": "CLI to interact with Coral",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "Wyatt Johnson @wyattjoh",
   "bin": {
     "coral-cli": "./bin/run"
   },
   "bugs": "https://github.com/coralproject/coral-cli/issues",
   "dependencies": {
-    "@coralproject/coral-cli-command": "^0.1.0",
+    "@coralproject/coral-cli-command": "^0.3.3",
     "@heroku-cli/color": "^1.1.14",
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
@@ -59,6 +59,7 @@
       "@oclif/plugin-not-found",
       "@oclif/plugin-plugins"
     ],
+    "npmRegistry": "https://npm.pkg.github.com/coralproject",
     "topics": {
       "story": {
         "description": "manage stories on Coral"
