@@ -13,7 +13,7 @@ export const DeactivateTokenMutation = /* GraphQL */ `
 `;
 
 export default class TokenRevoke extends Command {
-  public static description = "creates tokens on the current user";
+  public static description = "revokes tokens on the current user";
 
   public static flags = {
     domain: flags.domain({ required: true }),

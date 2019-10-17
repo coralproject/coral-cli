@@ -289,7 +289,7 @@ _See code: [src/commands/token/list.ts](https://github.com/coralproject/coral-cl
 
 ## `coral-cli token:revoke`
 
-creates tokens on the current user
+revokes tokens on the current user
 
 ```
 USAGE
