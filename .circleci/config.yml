@@ -41,14 +41,6 @@ jobs:
           name: Publish package
           command: npm publish
 
-# filter_develop will add the filters for a development related commit.
-filter_develop: &filter_develop
-  filters:
-    branches:
-      ignore:
-        - main
-        - develop
-
 # filter_release will add the filters for a deploy job in a workflow to make it
 # only execute on a tagged release.
 filter_release: &filter_release
@@ -61,10 +53,8 @@ filter_release: &filter_release
 workflows:
   test:
     jobs:
-      - dependencies:
-          <<: *filter_develop
+      - dependencies
       - test:
-          <<: *filter_develop
           requires:
             - dependencies
   test-deploy:
