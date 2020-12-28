@@ -1,5 +1,5 @@
 module.exports = {
-  "*.ts": "tslint -p . -t stylish",
+  "*.ts": "eslint",
   "*.js": "prettier --write",
-  "*.md": () => "npm run prepack"
+  "*.md": () => "npm run prepack",
 };

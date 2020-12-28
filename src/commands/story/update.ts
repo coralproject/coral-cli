@@ -29,23 +29,23 @@ export default class StoryUpdate extends Command {
     domain: flags.domain({ required: true }),
     id: flags.string({
       required: true,
-      description: "the ID of the story to update"
+      description: "the ID of the story to update",
     }),
     url: flags.string({
       required: true,
-      description: "the new URL to update the story to"
-    })
+      description: "the new URL to update the story to",
+    }),
   };
 
   public async run() {
     const {
-      flags: { domain, id, url }
+      flags: { domain, id, url },
     } = this.parse(StoryUpdate);
 
     const {
-      data: { story }
+      data: { story },
     } = await this.coral(domain).graphql(GetStoryQuery, {
-      id
+      id,
     });
     if (!story) {
       this.error(`Story with ID ${color.yellow(id)} not found`);
@@ -68,7 +68,7 @@ export default class StoryUpdate extends Command {
 
     await this.coral(domain).graphql(UpdateStoryMutation, {
       id,
-      story: { url }
+      story: { url },
     });
 
     cli.action.stop();

@@ -17,28 +17,28 @@ export default class TokenList extends Command {
   public static description = "lists tokens on the current user";
 
   public static flags = {
-    domain: flags.domain({ required: true })
+    domain: flags.domain({ required: true }),
   };
 
   public async run() {
     const {
-      flags: { domain }
+      flags: { domain },
     } = this.parse(TokenList);
 
     const {
-      data: { viewer }
+      data: { viewer },
     } = await this.coral(domain).graphql(ListTokenQuery);
 
     cli.table(viewer.tokens, {
       id: {
-        header: "ID"
+        header: "ID",
       },
       name: {
-        header: "Name"
+        header: "Name",
       },
       createdAt: {
-        header: "Created At"
-      }
+        header: "Created At",
+      },
     });
   }
 }

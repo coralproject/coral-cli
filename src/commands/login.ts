@@ -13,7 +13,7 @@ export default class Login extends Command {
   public static description = "grabs a token for interacting with Coral";
 
   public static flags = {
-    domain: flags.domain({ required: true })
+    domain: flags.domain({ required: true }),
   };
 
   public async run() {

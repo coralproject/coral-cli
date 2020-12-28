@@ -23,24 +23,24 @@ export default class StoryGet extends Command {
     domain: flags.domain({ required: true }),
     id: flags.string({
       exclusive: ["url"],
-      description: "find a story by ID"
+      description: "find a story by ID",
     }),
     url: flags.string({
       exclusive: ["id"],
-      description: "find a story by URL"
-    })
+      description: "find a story by URL",
+    }),
   };
 
   public async run() {
     const {
-      flags: { domain, id, url }
+      flags: { domain, id, url },
     } = this.parse(StoryGet);
 
     const {
-      data: { story }
+      data: { story },
     } = await this.coral(domain).graphql(GetStoryQuery, {
       id,
-      url
+      url,
     });
 
     this.log(JSON.stringify(story, null, 2));

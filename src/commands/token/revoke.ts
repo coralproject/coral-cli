@@ -19,21 +19,21 @@ export default class TokenRevoke extends Command {
     domain: flags.domain({ required: true }),
     id: flags.string({
       required: true,
-      description: "id of the token to revoke"
-    })
+      description: "id of the token to revoke",
+    }),
   };
 
   public async run() {
     const {
-      flags: { domain, id }
+      flags: { domain, id },
     } = this.parse(TokenRevoke);
 
     const {
       data: {
-        deactivateToken: { token }
-      }
+        deactivateToken: { token },
+      },
     } = await this.coral(domain).graphql(DeactivateTokenMutation, {
-      id
+      id,
     });
 
     this.log(`Revoked Token ${token.id}`);

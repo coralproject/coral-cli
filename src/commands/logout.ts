@@ -5,7 +5,7 @@ export default class Logout extends Command {
   public static description = "removes credentials for logging in with Coral";
 
   public static flags = {
-    domain: flags.domain({ required: true })
+    domain: flags.domain({ required: true }),
   };
 
   public async run() {

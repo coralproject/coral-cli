@@ -30,12 +30,12 @@ export default class StoryMerge extends Command {
     from: flags.string({
       required: true,
       multiple: true,
-      description: "source Story ID that will be merged from"
+      description: "source Story ID that will be merged from",
     }),
     into: flags.string({
       required: true,
-      description: "destination Story ID that will be merged into"
-    })
+      description: "destination Story ID that will be merged into",
+    }),
   };
 
   public async run() {
@@ -52,19 +52,16 @@ export default class StoryMerge extends Command {
     }
 
     const stories = await Promise.all(
-      storyIDs.map(id => client.graphql(GetStoryQuery, { id }))
+      storyIDs.map((id) => client.graphql(GetStoryQuery, { id }))
     );
 
-    const missing = stories.reduce(
-      (ids, { data: { story } }, idx) => {
-        if (story === null) {
-          ids.push(storyIDs[idx]);
-        }
+    const missing = stories.reduce((ids, { data: { story } }, idx) => {
+      if (story === null) {
+        ids.push(storyIDs[idx]);
+      }
 
-        return ids;
-      },
-      [] as string[]
-    );
+      return ids;
+    }, [] as string[]);
     if (missing.length > 0) {
       this.error(`Could not find stories with IDs: ${missing.join(", ")}`);
     }
@@ -82,7 +79,7 @@ export default class StoryMerge extends Command {
 
     await client.graphql(MergeStoriesMutation, {
       sourceIDs,
-      destinationID
+      destinationID,
     });
 
     cli.action.stop();
