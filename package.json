@@ -1,7 +1,7 @@
 {
   "name": "@coralproject/coral-cli",
   "description": "CLI to interact with Coral",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Wyatt Johnson @wyattjoh",
   "bin": {
     "coral-cli": "./bin/run"

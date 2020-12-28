@@ -22,7 +22,7 @@ $ npm install -g @coralproject/coral-cli
 $ coral-cli COMMAND
 running command...
 $ coral-cli (-v|--version|version)
-@coralproject/coral-cli/0.2.0 darwin-x64 node-v10.15.3
+@coralproject/coral-cli/0.3.0 darwin-x64 node-v12.20.0
 $ coral-cli --help [COMMAND]
 USAGE
   $ coral-cli COMMAND
@@ -63,7 +63,7 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.1/src/commands/help.ts)_
 
 ## `coral-cli login`
 
@@ -77,7 +77,7 @@ OPTIONS
   -d, --domain=domain  (required) domain for tenant to run command against
 ```
 
-_See code: [src/commands/login.ts](https://github.com/coralproject/coral-cli/blob/v0.2.0/src/commands/login.ts)_
+_See code: [src/commands/login.ts](https://github.com/coralproject/coral-cli/blob/v0.3.0/src/commands/login.ts)_
 
 ## `coral-cli logout`
 
@@ -91,7 +91,7 @@ OPTIONS
   -d, --domain=domain  (required) domain for tenant to run command against
 ```
 
-_See code: [src/commands/logout.ts](https://github.com/coralproject/coral-cli/blob/v0.2.0/src/commands/logout.ts)_
+_See code: [src/commands/logout.ts](https://github.com/coralproject/coral-cli/blob/v0.3.0/src/commands/logout.ts)_
 
 ## `coral-cli plugins`
 
@@ -108,7 +108,7 @@ EXAMPLE
   $ coral-cli plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.8/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.9.5/src/commands/plugins/index.ts)_
 
 ## `coral-cli plugins:install PLUGIN...`
 
@@ -144,7 +144,7 @@ EXAMPLES
   $ coral-cli plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.8/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.9.5/src/commands/plugins/install.ts)_
 
 ## `coral-cli plugins:link PLUGIN`
 
@@ -171,7 +171,7 @@ EXAMPLE
   $ coral-cli plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.8/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.9.5/src/commands/plugins/link.ts)_
 
 ## `coral-cli plugins:uninstall PLUGIN...`
 
@@ -193,7 +193,7 @@ ALIASES
   $ coral-cli plugins:remove
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.8/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.9.5/src/commands/plugins/uninstall.ts)_
 
 ## `coral-cli plugins:update`
 
@@ -208,7 +208,7 @@ OPTIONS
   -v, --verbose
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.8/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.9.5/src/commands/plugins/update.ts)_
 
 ## `coral-cli story:get`
 
@@ -224,7 +224,7 @@ OPTIONS
   --url=url            find a story by URL
 ```
 
-_See code: [src/commands/story/get.ts](https://github.com/coralproject/coral-cli/blob/v0.2.0/src/commands/story/get.ts)_
+_See code: [src/commands/story/get.ts](https://github.com/coralproject/coral-cli/blob/v0.3.0/src/commands/story/get.ts)_
 
 ## `coral-cli story:merge`
 
@@ -240,7 +240,7 @@ OPTIONS
   --into=into          (required) destination Story ID that will be merged into
 ```
 
-_See code: [src/commands/story/merge.ts](https://github.com/coralproject/coral-cli/blob/v0.2.0/src/commands/story/merge.ts)_
+_See code: [src/commands/story/merge.ts](https://github.com/coralproject/coral-cli/blob/v0.3.0/src/commands/story/merge.ts)_
 
 ## `coral-cli story:update`
 
@@ -256,7 +256,7 @@ OPTIONS
   --url=url            (required) the new URL to update the story to
 ```
 
-_See code: [src/commands/story/update.ts](https://github.com/coralproject/coral-cli/blob/v0.2.0/src/commands/story/update.ts)_
+_See code: [src/commands/story/update.ts](https://github.com/coralproject/coral-cli/blob/v0.3.0/src/commands/story/update.ts)_
 
 ## `coral-cli token:create`
 
@@ -271,7 +271,7 @@ OPTIONS
   --name=name          (required) name of the token
 ```
 
-_See code: [src/commands/token/create.ts](https://github.com/coralproject/coral-cli/blob/v0.2.0/src/commands/token/create.ts)_
+_See code: [src/commands/token/create.ts](https://github.com/coralproject/coral-cli/blob/v0.3.0/src/commands/token/create.ts)_
 
 ## `coral-cli token:list`
 
@@ -285,7 +285,7 @@ OPTIONS
   -d, --domain=domain  (required) domain for tenant to run command against
 ```
 
-_See code: [src/commands/token/list.ts](https://github.com/coralproject/coral-cli/blob/v0.2.0/src/commands/token/list.ts)_
+_See code: [src/commands/token/list.ts](https://github.com/coralproject/coral-cli/blob/v0.3.0/src/commands/token/list.ts)_
 
 ## `coral-cli token:revoke`
 
@@ -300,5 +300,5 @@ OPTIONS
   --id=id              (required) id of the token to revoke
 ```
 
-_See code: [src/commands/token/revoke.ts](https://github.com/coralproject/coral-cli/blob/v0.2.0/src/commands/token/revoke.ts)_
+_See code: [src/commands/token/revoke.ts](https://github.com/coralproject/coral-cli/blob/v0.3.0/src/commands/token/revoke.ts)_
 <!-- commandsstop -->
