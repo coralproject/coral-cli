@@ -21,6 +21,9 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
+          name: Run Tests
+          command: npm run test
+      - run:
           name: Lint Source Code
           command: npm run lint
       - run:
