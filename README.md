@@ -4,9 +4,9 @@ CLI to interact with Coral
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@coralproject/coral-cli.svg)](https://npmjs.org/package/@coralproject/coral-cli)
-[![CircleCI](https://circleci.com/gh/coralproject/coral-cli/tree/master.svg?style=shield)](https://circleci.com/gh/coralproject/coral-cli/tree/master)
+[![CircleCI](https://circleci.com/gh/coralproject/coral-cli/tree/main.svg?style=shield)](https://circleci.com/gh/coralproject/coral-cli/tree/main)
 [![Downloads/week](https://img.shields.io/npm/dw/@coralproject/coral-cli.svg)](https://npmjs.org/package/@coralproject/coral-cli)
-[![License](https://img.shields.io/npm/l/@coralproject/coral-cli.svg)](https://github.com/coralproject/coral-cli/blob/master/package.json)
+[![License](https://img.shields.io/npm/l/@coralproject/coral-cli.svg)](https://github.com/coralproject/coral-cli/blob/main/package.json)
 
 <!-- toc -->
 * [@coralproject/coral-cli](#coralprojectcoral-cli)
