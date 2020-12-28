@@ -1,56 +1,81 @@
----
-version: 2
+version: 2.1
+orbs:
+  node: circleci/node@4.1.0
+executors:
+  default:
+    docker:
+      - image: cimg/node:13.11
+    working_directory: ~/repo
 jobs:
-  node-latest: &test
-    docker:
-      - image: node:latest
-    working_directory: ~/cli
+  dependencies:
+    executor: default
     steps:
       - checkout
-      - restore_cache: &restore_cache
-          keys:
-            - v1-npm-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
-            - v1-npm-{{ checksum ".circleci/config.yml" }}
-      - run:
-          name: Install dependencies
-          command: yarn
-      - run: ./bin/run --version
-      - run: ./bin/run --help
-      - run:
-          name: Testing
-          command: npm test
-  node-8:
-    <<: *test
-    docker:
-      - image: node:8
-  node-10:
-    <<: *test
-    docker:
-      - image: node:10
-  cache:
-    <<: *test
+      - node/install-packages
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+  test:
+    executor: default
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/repo
       - run:
-          name: Install dependencies
-          command: yarn
-      - save_cache:
-          key: v1-npm-{{ checksum ".circleci/config.yml" }}-{{ checksum "package-lock.json" }}
-          paths:
-            - ~/cli/node_modules
-            - ~/.npm
-            - /usr/local/lib/node_modules
+          name: Lint Source Code
+          command: npm run lint
+      - run:
+          name: Lint Versions
+          command: npx @coralproject/package-version-lint
+  release:
+    executor: default
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Verify release version
+          command: npx @coralproject/package-version-lint --expect ${CIRCLE_TAG/#v}
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
+
+# filter_develop will add the filters for a development related commit.
+filter_develop: &filter_develop
+  filters:
+    branches:
+      ignore:
+        - main
+        - develop
+
+# filter_release will add the filters for a deploy job in a workflow to make it
+# only execute on a tagged release.
+filter_release: &filter_release
+  filters:
+    branches:
+      ignore: /.*/
+    tags:
+      only: /^v.*/
 
 workflows:
-  version: 2
-  "@coralproject/coral-cli":
+  test:
     jobs:
-      - node-latest
-      - node-8
-      - node-10
-      - cache:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
+      - dependencies:
+          <<: *filter_develop
+      - test:
+          <<: *filter_develop
+          requires:
+            - dependencies
+  test-deploy:
+    jobs:
+      - dependencies:
+          <<: *filter_release
+      - test:
+          <<: *filter_release
+          requires:
+            - dependencies
+      - release:
+          <<: *filter_release
+          requires:
+            - test
