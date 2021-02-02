@@ -30,6 +30,9 @@ USAGE
 ```
 <!-- usagestop -->
 
+All commands require the `domain` where your instance of Coral is installed. When specifying the domain any trailing `/` characters should be removed. For example, if your domain ends in `.com`, you will see an error if you include a trailing slash i.e.: `.com/`
+
+
 # Commands
 
 <!-- commands -->
