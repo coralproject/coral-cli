@@ -22,7 +22,7 @@ $ npm install -g @coralproject/coral-cli
 $ coral-cli COMMAND
 running command...
 $ coral-cli (-v|--version|version)
-@coralproject/coral-cli/0.3.1 darwin-x64 node-v13.14.0
+@coralproject/coral-cli/0.3.1 darwin-x64 node-v12.20.1
 $ coral-cli --help [COMMAND]
 USAGE
   $ coral-cli COMMAND
@@ -77,7 +77,7 @@ USAGE
   $ coral-cli login
 
 OPTIONS
-  -d, --domain=domain  (required) domain for tenant to run command against
+  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
 ```
 
 _See code: [src/commands/login.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/login.ts)_
@@ -91,7 +91,7 @@ USAGE
   $ coral-cli logout
 
 OPTIONS
-  -d, --domain=domain  (required) domain for tenant to run command against
+  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
 ```
 
 _See code: [src/commands/logout.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/logout.ts)_
@@ -222,7 +222,7 @@ USAGE
   $ coral-cli story:get
 
 OPTIONS
-  -d, --domain=domain  (required) domain for tenant to run command against
+  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
   --id=id              find a story by ID
   --url=url            find a story by URL
 ```
@@ -238,7 +238,7 @@ USAGE
   $ coral-cli story:merge
 
 OPTIONS
-  -d, --domain=domain  (required) domain for tenant to run command against
+  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
   --from=from          (required) source Story ID that will be merged from
   --into=into          (required) destination Story ID that will be merged into
 ```
@@ -254,7 +254,7 @@ USAGE
   $ coral-cli story:update
 
 OPTIONS
-  -d, --domain=domain  (required) domain for tenant to run command against
+  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
   --id=id              (required) the ID of the story to update
   --url=url            (required) the new URL to update the story to
 ```
@@ -270,7 +270,8 @@ USAGE
   $ coral-cli token:create
 
 OPTIONS
-  -d, --domain=domain  (required) domain for tenant to run command against
+  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
+  --json               will write output as json
   --name=name          (required) name of the token
 ```
 
@@ -285,7 +286,8 @@ USAGE
   $ coral-cli token:list
 
 OPTIONS
-  -d, --domain=domain  (required) domain for tenant to run command against
+  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
+  --json               will write output as json
 ```
 
 _See code: [src/commands/token/list.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/token/list.ts)_
@@ -299,7 +301,7 @@ USAGE
   $ coral-cli token:revoke
 
 OPTIONS
-  -d, --domain=domain  (required) domain for tenant to run command against
+  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
   --id=id              (required) id of the token to revoke
 ```
 

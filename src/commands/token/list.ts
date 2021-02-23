@@ -18,27 +18,32 @@ export default class TokenList extends Command {
 
   public static flags = {
     domain: flags.domain({ required: true }),
+    json: flags.boolean({ description: "will write output as json" }),
   };
 
   public async run() {
     const {
-      flags: { domain },
+      flags: { domain, json },
     } = this.parse(TokenList);
 
     const {
       data: { viewer },
     } = await this.coral(domain).graphql(ListTokenQuery);
 
-    cli.table(viewer.tokens, {
-      id: {
-        header: "ID",
-      },
-      name: {
-        header: "Name",
-      },
-      createdAt: {
-        header: "Created At",
-      },
-    });
+    if (json) {
+      console.log(JSON.stringify(viewer.tokens, null, 2));
+    } else {
+      cli.table(viewer.tokens, {
+        id: {
+          header: "ID",
+        },
+        name: {
+          header: "Name",
+        },
+        createdAt: {
+          header: "Created At",
+        },
+      });
+    }
   }
 }

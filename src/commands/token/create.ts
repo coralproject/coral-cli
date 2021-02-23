@@ -19,21 +19,26 @@ export default class TokenCreate extends Command {
   public static flags = {
     domain: flags.domain({ required: true }),
     name: flags.string({ required: true, description: "name of the token" }),
+    json: flags.boolean({ description: "will write output as json" }),
   };
 
   public async run() {
     const {
-      flags: { domain, name },
+      flags: { domain, name, json },
     } = this.parse(TokenCreate);
 
     const {
-      data: {
-        createToken: { token, signedToken },
-      },
+      data: { createToken },
     } = await this.coral(domain).graphql(CreateTokenMutation, {
       name,
     });
 
-    this.log(`Created Token ${token.id}: ${signedToken}`);
+    if (json) {
+      console.log(JSON.stringify(createToken, null, 2));
+    } else {
+      const { token, signedToken } = createToken;
+
+      this.log(`Created Token ${token.id}: ${signedToken}`);
+    }
   }
 }
