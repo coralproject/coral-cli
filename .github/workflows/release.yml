@@ -15,7 +15,7 @@ jobs:
           node-version: "13"
           registry-url: "https://registry.npmjs.org"
       - name: Lint Version
-        run: npx @coralproject/package-version-lint --expect ${CIRCLE_TAG/#v}
+        run: npx @coralproject/package-version-lint --expect ${GITHUB_REF#refs/tags/v}
       - run: npm ci
       - run: npm run test
       - run: npm run lint
