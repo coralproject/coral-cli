@@ -8,6 +8,12 @@ export const GetStoryQuery = /* GraphQL */ `
       status
       metadata {
         title
+        description
+        image
+        author
+        publishedAt
+        modifiedAt
+        section
       }
       commentCounts {
         totalPublished
