@@ -1,8 +1,8 @@
 import { Command, flags } from "@coralproject/coral-cli-command";
 
 export const DebugScrapeStoryMetadataQuery = /* GraphQL */ `
-  query debugScraper($url: String!){
-    debugScrapeStoryMetadata(url: $url){
+  query DebugScrapeStoryMetadataQuery($url: String!) {
+    debugScrapeStoryMetadata(url: $url) {
       title
       author
       description
@@ -14,8 +14,9 @@ export const DebugScrapeStoryMetadataQuery = /* GraphQL */ `
   }
 `;
 
-export default class StoryDebugURL extends Command {
-  public static description = "displays the metadata that Coral was able to scrape from the given URL";
+export default class ScraperDebug extends Command {
+  public static description =
+    "displays the metadata that Coral was able to scrape from the given URL";
 
   public static flags = {
     domain: flags.domain({ required: true }),
@@ -25,14 +26,14 @@ export default class StoryDebugURL extends Command {
   public async run() {
     const {
       flags: { domain, url },
-    } = this.parse(StoryDebugURL);
+    } = this.parse(ScraperDebug);
 
     const {
-      data: { story },
+      data: { debugScrapeStoryMetadata },
     } = await this.coral(domain).graphql(DebugScrapeStoryMetadataQuery, {
       url,
     });
 
-    this.log(JSON.stringify(story, null, 2));
+    this.log(JSON.stringify(debugScrapeStoryMetadata, null, 2));
   }
 }
