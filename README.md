@@ -22,7 +22,7 @@ $ npm install -g @coralproject/coral-cli
 $ coral-cli COMMAND
 running command...
 $ coral-cli (-v|--version|version)
-@coralproject/coral-cli/0.3.1 darwin-x64 node-v12.20.1
+@coralproject/coral-cli/0.5.0 darwin-x64 node-v12.20.1
 $ coral-cli --help [COMMAND]
 USAGE
   $ coral-cli COMMAND
@@ -44,6 +44,7 @@ All commands require the `domain` where your instance of Coral is installed. Whe
 * [`coral-cli plugins:link PLUGIN`](#coral-cli-pluginslink-plugin)
 * [`coral-cli plugins:uninstall PLUGIN...`](#coral-cli-pluginsuninstall-plugin)
 * [`coral-cli plugins:update`](#coral-cli-pluginsupdate)
+* [`coral-cli scraper:debug`](#coral-cli-scraperdebug)
 * [`coral-cli story:get`](#coral-cli-storyget)
 * [`coral-cli story:merge`](#coral-cli-storymerge)
 * [`coral-cli story:update`](#coral-cli-storyupdate)
@@ -77,10 +78,10 @@ USAGE
   $ coral-cli login
 
 OPTIONS
-  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
+  -d, --domain=domain  (required) domain for tenant to run command against
 ```
 
-_See code: [src/commands/login.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/login.ts)_
+_See code: [src/commands/login.ts](https://github.com/coralproject/coral-cli/blob/v0.5.0/src/commands/login.ts)_
 
 ## `coral-cli logout`
 
@@ -91,10 +92,10 @@ USAGE
   $ coral-cli logout
 
 OPTIONS
-  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
+  -d, --domain=domain  (required) domain for tenant to run command against
 ```
 
-_See code: [src/commands/logout.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/logout.ts)_
+_See code: [src/commands/logout.ts](https://github.com/coralproject/coral-cli/blob/v0.5.0/src/commands/logout.ts)_
 
 ## `coral-cli plugins`
 
@@ -213,6 +214,21 @@ OPTIONS
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.9.5/src/commands/plugins/update.ts)_
 
+## `coral-cli scraper:debug`
+
+displays the metadata that Coral was able to scrape from the given URL
+
+```
+USAGE
+  $ coral-cli scraper:debug
+
+OPTIONS
+  -d, --domain=domain  (required) domain for tenant to run command against
+  --url=url            (required)
+```
+
+_See code: [src/commands/scraper/debug.ts](https://github.com/coralproject/coral-cli/blob/v0.5.0/src/commands/scraper/debug.ts)_
+
 ## `coral-cli story:get`
 
 fetches a story
@@ -222,12 +238,12 @@ USAGE
   $ coral-cli story:get
 
 OPTIONS
-  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
+  -d, --domain=domain  (required) domain for tenant to run command against
   --id=id              find a story by ID
   --url=url            find a story by URL
 ```
 
-_See code: [src/commands/story/get.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/story/get.ts)_
+_See code: [src/commands/story/get.ts](https://github.com/coralproject/coral-cli/blob/v0.5.0/src/commands/story/get.ts)_
 
 ## `coral-cli story:merge`
 
@@ -238,12 +254,12 @@ USAGE
   $ coral-cli story:merge
 
 OPTIONS
-  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
+  -d, --domain=domain  (required) domain for tenant to run command against
   --from=from          (required) source Story ID that will be merged from
   --into=into          (required) destination Story ID that will be merged into
 ```
 
-_See code: [src/commands/story/merge.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/story/merge.ts)_
+_See code: [src/commands/story/merge.ts](https://github.com/coralproject/coral-cli/blob/v0.5.0/src/commands/story/merge.ts)_
 
 ## `coral-cli story:update`
 
@@ -254,12 +270,12 @@ USAGE
   $ coral-cli story:update
 
 OPTIONS
-  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
+  -d, --domain=domain  (required) domain for tenant to run command against
   --id=id              (required) the ID of the story to update
   --url=url            (required) the new URL to update the story to
 ```
 
-_See code: [src/commands/story/update.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/story/update.ts)_
+_See code: [src/commands/story/update.ts](https://github.com/coralproject/coral-cli/blob/v0.5.0/src/commands/story/update.ts)_
 
 ## `coral-cli token:create`
 
@@ -270,12 +286,12 @@ USAGE
   $ coral-cli token:create
 
 OPTIONS
-  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
+  -d, --domain=domain  (required) domain for tenant to run command against
   --json               will write output as json
   --name=name          (required) name of the token
 ```
 
-_See code: [src/commands/token/create.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/token/create.ts)_
+_See code: [src/commands/token/create.ts](https://github.com/coralproject/coral-cli/blob/v0.5.0/src/commands/token/create.ts)_
 
 ## `coral-cli token:list`
 
@@ -286,11 +302,11 @@ USAGE
   $ coral-cli token:list
 
 OPTIONS
-  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
+  -d, --domain=domain  (required) domain for tenant to run command against
   --json               will write output as json
 ```
 
-_See code: [src/commands/token/list.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/token/list.ts)_
+_See code: [src/commands/token/list.ts](https://github.com/coralproject/coral-cli/blob/v0.5.0/src/commands/token/list.ts)_
 
 ## `coral-cli token:revoke`
 
@@ -301,9 +317,9 @@ USAGE
   $ coral-cli token:revoke
 
 OPTIONS
-  -d, --domain=domain  (required) [default: http://localhost:8080] domain for tenant to run command against
+  -d, --domain=domain  (required) domain for tenant to run command against
   --id=id              (required) id of the token to revoke
 ```
 
-_See code: [src/commands/token/revoke.ts](https://github.com/coralproject/coral-cli/blob/v0.3.1/src/commands/token/revoke.ts)_
+_See code: [src/commands/token/revoke.ts](https://github.com/coralproject/coral-cli/blob/v0.5.0/src/commands/token/revoke.ts)_
 <!-- commandsstop -->
