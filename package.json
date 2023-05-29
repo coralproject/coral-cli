@@ -14,7 +14,7 @@
     "@oclif/config": "^1.17.0",
     "@oclif/plugin-help": "^3.2.1",
     "@oclif/plugin-not-found": "^1.2.4",
-    "@oclif/plugin-plugins": "^1.9.5",
+    "@oclif/plugin-plugins": "^3.1.2",
     "cli-ux": "^5.5.1",
     "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.20",
